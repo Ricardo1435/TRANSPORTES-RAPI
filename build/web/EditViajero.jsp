@@ -100,28 +100,7 @@
                 <input type="text" class="form-control" autocomplete="off" name="ingresoFechaViaje" placeholder="DD/MM/AAAA HH:MM TT" value="${viajero.getFechaViaje()}" required>
             </div>
              <div>
-               <b><label for="ingresoCorreo" class="mt-2">RECEPCIONISTA</label></b>
-                <select class="custom-select" name="ingresoCorreo" id="ingresoCorreo" required>
-                    <option value="${viajero.getCorreo()}">--Cambiar Recepcionista--</option>
-                    <%
-                        try {
-                              String sql="SELECT * FROM usuario";
-                              Class.forName("oracle.jdbc.driver.OracleDriver").newInstance();
-                              String url="jdbc:oracle:thin:@localhost:1521/XEPDB1";
-                              String user="Proyecto";
-                              String pass="1234";
-                              Connection conn=DriverManager.getConnection(url,user,pass);
-                              Statement stm =conn.createStatement();
-                              ResultSet rs=stm.executeQuery(sql);
-                              while(rs.next()){
-                                  %>
-                                  <option value="<%=rs.getString("correo")%>"><%=rs.getString("correo")%></option>
-                                  <%
-                              }
-                            } catch (Exception e) {
-                            }
-                    %>
-                </select>        
+                <input type="hidden" class="form-control" autocomplete="off" name="ingresoCorreo" value="${correo}">
             </div>
             <button type="submit" class="btn btn-primary my-3" id="btnGuardar" name="accion" value="Actualizar">Guardar &nbsp;&nbsp;<i class="fas fa-save"></i></button> 
            <a href="ViajeroIndex.jsp"> <input type="button" value="Cancelar" class="btn btn-danger" id="btnCancelar"></a> 

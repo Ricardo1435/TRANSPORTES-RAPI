@@ -120,7 +120,12 @@ ViajeroDAO dao = new ViajeroDAO();
                 String idViajero4=request.getParameter("idViajero");
                 dao.eliminar(idViajero4);
                 break;
-         
+         case "Buscar":
+                String dato=request.getParameter("ingresoBuscar");
+                List <Viajero> lista = dao.buscar(dato);
+                request.setAttribute("datos", lista);
+                request.getRequestDispatcher("ViajeroIndex.jsp").forward(request, response);
+                break;
            default: throw new AssertionError();
            
        }

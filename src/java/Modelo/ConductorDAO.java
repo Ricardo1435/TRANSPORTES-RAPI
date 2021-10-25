@@ -14,7 +14,7 @@ public class ConductorDAO {
     
     public List listar(){
         List <Conductor>lista = new ArrayList<>();
-        String sql="SELECT * FROM CONDUCTOR order by nombres_conductor asc";
+        String sql="SELECT * FROM CONDUCTOR ORDER BY id_conductor";
         try {
             con=c.conectar();
             ps=con.prepareStatement(sql);

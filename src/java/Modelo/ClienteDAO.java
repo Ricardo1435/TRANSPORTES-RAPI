@@ -14,7 +14,7 @@ public class ClienteDAO {
     
     public List listar(){
         List <Cliente>lista = new ArrayList<>();
-        String sql="SELECT * FROM CLIENTE";
+        String sql="SELECT * FROM CLIENTE ORDER BY id_cliente";
         try {
             con=c.conectar();
             ps=con.prepareStatement(sql);

@@ -14,7 +14,7 @@ public class VehiculoDAO {
      public List listar(){
         List <Vehiculo>lista = new ArrayList<>();
         String sql="SELECT vehiculo.matricula, vehiculo.alias_vehiculo, vehiculo.cantidad_asientos, conductor.nombres_conductor, conductor.apellidos_conductor \n" +
-                    "FROM vehiculo, conductor WHERE vehiculo.id_conductor=conductor.id_conductor";
+                    "FROM vehiculo, conductor WHERE vehiculo.id_conductor=conductor.id_conductor  ORDER BY vehiculo.matricula";
         try {
             con=c.conectar();
             ps=con.prepareStatement(sql);

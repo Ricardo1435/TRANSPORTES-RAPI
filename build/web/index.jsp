@@ -31,14 +31,14 @@
      <div class="contenedor">
          <div class="input-contenedor">
          <i class="fas fa-envelope icon"></i>
-         <input type="email" autocomplete="off" name="txtcorreo" placeholder="example@gmail.com" required>
+         <input type="email" autocomplete="off" name="txtcorreo" placeholder="ejemplo@gmail.com" required>
          </div>
          <div class="input-contenedor">
          <i class="fas fa-key icon"></i>
           <input type="password" autocomplete="off" name="txtcontra" placeholder="Contraseña" required>
          </div>
          <button type="submit" name="accion" id="ingresar" value="Ingresar">INGRESAR</button><br> 
-         <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
+         <p>Al registrarte, aceptas nuestras Condiciones de Uso y Política de Privacidad.</p>
          <p>¿No tienes una cuenta? <a class="link" href="registro.jsp">Registrate </a></p>
      </div>
     </form>

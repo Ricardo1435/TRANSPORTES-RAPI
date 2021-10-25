@@ -39,8 +39,6 @@
         <!-- Formulario -->
         <form class="bg-light container-md mt-5 mb-5 " action="ControladorViajero" method="POST">
             <center><h2 class="mt-2 mb-2"> REGISTRO DE VIAJEROS &nbsp;&nbsp;&nbsp;<i class="fas fa-pen-alt"></i></h2> </center>
-       
-       
             <div>
                <b><label for="ingresoCliente" class="mt-2">CLIENTE</label></b>
                 <select class="custom-select" name="ingresoCliente" id="ingresoCliente" required>
@@ -97,29 +95,8 @@
                 <b><label for="ingresoFechaViaje" class="mt-2">FECHA Y HORA</label></b>
                 <input type="text" class="form-control" autocomplete="off" name="ingresoFechaViaje" placeholder="DD/MM/AAAA HH:MM TT" required>
             </div>
-             <div>
-               <b><label for="ingresoCorreo" class="mt-2">RECEPCIONISTA</label></b>
-                <select class="custom-select" name="ingresoCorreo" id="ingresoCorreo" required>
-                    <option>--Seleccione una opcion--</option>
-                    <%
-                        try {
-                              String sql="SELECT * FROM usuario";
-                              Class.forName("oracle.jdbc.driver.OracleDriver").newInstance();
-                              String url="jdbc:oracle:thin:@localhost:1521/XEPDB1";
-                              String user="Proyecto";
-                              String pass="1234";
-                              Connection conn=DriverManager.getConnection(url,user,pass);
-                              Statement stm =conn.createStatement();
-                              ResultSet rs=stm.executeQuery(sql);
-                              while(rs.next()){
-                                  %>
-                                  <option value="<%=rs.getString("correo")%>"><%=rs.getString("correo")%></option>
-                                  <%
-                              }
-                            } catch (Exception e) {
-                            }
-                    %>
-                </select>        
+            <div>
+                <input type="hidden" class="form-control" autocomplete="off" name="ingresoCorreo" value="${correo}">
             </div>
             <button type="submit" class="btn btn-primary my-3" id="btnGuardar" name="accion" value="Guardar">Guardar &nbsp;&nbsp;<i class="fas fa-save"></i></button> 
            <a href="ViajeroIndex.jsp"> <input type="button" value="Cancelar" class="btn btn-danger" id="btnCancelar"></a> 

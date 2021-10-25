@@ -38,15 +38,15 @@
      <div class="contenedor">    
          <div class="input-contenedor">
          <i class="fas fa-envelope icon"></i>
-         <input type="email" autocomplete="off" name="ingresoCorreo" placeholder="example@gmail.com" required>
+         <input type="email" autocomplete="off" name="ingresoCorreo" placeholder="ejemplo@gmail.com" required>
          </div>
          <div class="input-contenedor">
          <i class="fas fa-key icon"></i>
          <input type="password" autocomplete="off" name="ingresoPass" placeholder="Contraseña" required>
          </div>
             <button type="submit" id="ingresar" name="accion" value="Registrar">REGISTRARME</button> 
-         <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
-         <p>¿Ya tienes una cuenta?<a class="link" href="index.jsp"> Iniciar Sesion</a></p>
+         <p>Al registrarte, aceptas nuestras Condiciones de Uso y Política de Privacidad.</p>
+         <p>¿Ya tienes una cuenta?<a class="link" href="index.jsp"> Iniciar Sesión</a></p>
      </div>
     </form>
 </body>

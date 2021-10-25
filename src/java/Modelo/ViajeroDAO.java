@@ -14,7 +14,7 @@ public class ViajeroDAO {
    public List listar(){
         List <Viajero>lista = new ArrayList<>();
         String sql="SELECT cliente_destino.ROWID, cliente_destino.id_cliente, cliente.nombres_cliente, cliente.apellidos_cliente, cliente_destino.id_destino, destino.nombre_destino, cliente_destino.asiento, to_char(cliente_destino.fecha_viaje, 'DD/MM/YYYY HH:MI AM'), cliente_destino.correo \n" +
-                    "FROM cliente_destino, cliente, destino, usuario WHERE cliente_destino.id_cliente=cliente.id_cliente AND cliente_destino.id_destino=destino.id_destino AND cliente_destino.correo=usuario.correo";
+                    "FROM cliente_destino, cliente, destino, usuario WHERE cliente_destino.id_cliente=cliente.id_cliente AND cliente_destino.id_destino=destino.id_destino AND cliente_destino.correo=usuario.correo ORDER BY cliente.nombres_cliente";
         try {
             con=c.conectar();
             ps=con.prepareStatement(sql);
@@ -112,4 +112,30 @@ public class ViajeroDAO {
         }
     }
     
+     public List buscar(String texto){
+        List <Viajero> lista = new ArrayList<>();
+        String sql="SELECT cliente_destino.ROWID, cliente_destino.id_cliente, cliente.nombres_cliente, cliente.apellidos_cliente, cliente_destino.id_destino, destino.nombre_destino, cliente_destino.asiento, to_char(cliente_destino.fecha_viaje, 'DD/MM/YYYY HH:MI AM'), cliente_destino.correo FROM cliente_destino, cliente, destino, usuario WHERE cliente_destino.id_cliente=cliente.id_cliente AND cliente_destino.id_destino=destino.id_destino AND cliente_destino.correo=usuario.correo AND cliente.nombres_cliente LIKE '%"+texto+"%'";
+        try {
+            con=c.conectar();
+            ps=con.prepareStatement(sql);
+            rs=ps.executeQuery();
+            while(rs.next()){
+                Viajero via = new Viajero();
+                via.setRowId(rs.getString(1));
+                via.setIdCliente(rs.getString(2));
+                via.setNombresCliente(rs.getString(3));
+                via.setApellidosCliente(rs.getString(4));
+                via.setIdDestino(rs.getString(5));
+                via.setNombreDestino(rs.getString(6));
+                via.setAsiento(rs.getString(7));
+                via.setFechaViaje(rs.getString(8));
+                via.setCorreo(rs.getString(9));
+                lista.add(via);
+            }
+        } catch (Exception e) {
+        }
+        return lista;
+    }
 }
+    
+

@@ -13,7 +13,7 @@ public class DestinoDAO {
     
     public List listar(){
         List <Destino>lista = new ArrayList<>();
-        String sql="SELECT destino.id_destino, destino.nombre_destino, destino.precio_boleto, destino.matricula, vehiculo.alias_vehiculo FROM destino, vehiculo WHERE destino.matricula=vehiculo.matricula";
+        String sql="SELECT destino.id_destino, destino.nombre_destino, destino.precio_boleto, destino.matricula, vehiculo.alias_vehiculo FROM destino, vehiculo WHERE destino.matricula=vehiculo.matricula ORDER BY destino.id_destino ";
         try {
             con=c.conectar();
             ps=con.prepareStatement(sql);
