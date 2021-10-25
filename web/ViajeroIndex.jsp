@@ -53,7 +53,7 @@
             <div class="navbar">
                 <a class="btn btn-outline-success btn-bg my-3 mx-1" id="new" name="accion" value="Nuevo" href="AddViajero.jsp">Nuevo</a>
                <form class="form-inline" action="ControladorViajero" method="POST">
-                   <input type="search" class="form-control" autocomplete="off" name="ingresoBuscar">
+                   <input type="search" class="form-control" autocomplete="off" name="ingresoBuscar" placeholder="Nombre del Viajero">
                    <input type="submit" name="accion" value="Buscar" class="btn btn-outline-success">
                </form>
               </div>
