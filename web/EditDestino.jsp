@@ -56,7 +56,7 @@
                     <option value="${destino.getMatricula()}">--Cambiar Vehiculo--</option>
                     <%
                         try {
-                              String sql="SELECT * FROM vehiculo";
+                              String sql="SELECT matricula, alias_vehiculo FROM vehiculo WHERE NOT EXISTS (SELECT NULL FROM destino WHERE destino.matricula = vehiculo.matricula)";
                               Class.forName("oracle.jdbc.driver.OracleDriver").newInstance();
                               String url="jdbc:oracle:thin:@localhost:1521/XEPDB1";
                               String user="Proyecto";
